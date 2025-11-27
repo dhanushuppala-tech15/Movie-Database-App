@@ -1,4 +1,5 @@
-import React from 'react'
+// src/components/NavBar/index.js
+
 import {Link, withRouter} from 'react-router-dom'
 
 import SearchMoviesContext from '../../context/SearchMoviesContext'
@@ -25,10 +26,7 @@ const NavBar = props => {
         }
 
         return (
-          <form
-            className="d-flex align-items-center"
-            onSubmit={onSearchHandler}
-          >
+          <div className="d-flex align-items-center">
             <input
               type="text"
               className="me-2 search-input"
@@ -36,10 +34,14 @@ const NavBar = props => {
               value={searchInput}
               placeholder="Search"
             />
-            <button className="btn btn-outline-info" type="submit">
+            <button
+              className="btn btn-outline-info"
+              type="button"
+              onClick={onSearchHandler}
+            >
               Search
             </button>
-          </form>
+          </div>
         )
       }}
     </SearchMoviesContext.Consumer>
@@ -50,7 +52,6 @@ const NavBar = props => {
       <div className="logo-container">
         <h1 className="page-logo">movieDB</h1>
       </div>
-
       <div className="ms-auto d-flex align-items-center">
         <ul className="order-1 d-flex align-items-center p-0 mb-0 ms-3 nav-items-list">
           <li className="nav-item">
